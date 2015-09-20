@@ -46,11 +46,13 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToolBar;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import netscape.javascript.JSObject;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.stage.Stage;
+import javafx.scene.layout.StackPane;
 
 /**
  *
@@ -79,7 +81,7 @@ public class TechGardenMap extends Application implements MapComponentInitialize
         mapComponent.addMapInializedListener(this);
         
         BorderPane bp = new BorderPane();
-        ToolBar tb = new ToolBar();
+       // ToolBar tb = new ToolBar();
 
         btnZoomIn = new Button("Zoom In");
         btnZoomIn.setOnAction(e -> {
@@ -114,16 +116,25 @@ public class TechGardenMap extends Application implements MapComponentInitialize
 		btnDeleteMarker = new Button("Delete Marker");
 		btnDeleteMarker.setOnAction(e -> {deleteMarker();});
 		
-        tb.getItems().addAll(btnZoomIn, btnZoomOut, mapTypeCombo,
-                new Label("Zoom: "), lblZoom,
-                new Label("Center: "), lblCenter,
-                new Label("Click: "), lblClick,
-				btnHideMarker, btnDeleteMarker);
+       // tb.getItems().addAll(btnZoomIn, btnZoomOut, mapTypeCombo,
+                //new Label("Zoom: "), lblZoom,
+                //new Label("Center: "), lblCenter,
+                //new Label("Click: "), lblClick,
+		//		btnHideMarker, btnDeleteMarker);
 
-        bp.setTop(tb);
+       Button but  = new Button("Загрузить");
+        but.setMinSize(100, 30);
+       StackPane pane = new StackPane();
+       pane.setPrefWidth(200.0);
+       pane.getChildren().add(but);
+       bp.setLeft(pane);
         bp.setCenter(mapComponent);
-
-        Scene scene = new Scene(bp);
+        AnchorPane split = new AnchorPane();
+       //ListView list  = new ListView();
+       //AnchorPane.setLeftAnchor(list, 10.0);
+       //AnchorPane.setRightAnchor(bp, 40.0);
+        //Scene scene = new Scene(split);
+       Scene scene = new Scene(bp);
         stage.setScene(scene);
         stage.show();
     }
