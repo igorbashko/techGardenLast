@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package techGardenMap;
+
 import com.lynden.gmapsfx.GoogleMapView;
 import com.lynden.gmapsfx.MapComponentInitializedListener;
 import com.lynden.gmapsfx.service.elevation.ElevationResult;
@@ -36,6 +37,9 @@ import com.lynden.gmapsfx.shapes.RectangleOptions;
 import com.lynden.gmapsfx.zoom.MaxZoomResult;
 import com.lynden.gmapsfx.zoom.MaxZoomService;
 import com.lynden.gmapsfx.zoom.MaxZoomServiceCallback;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.beans.value.ObservableValue;
@@ -53,6 +57,7 @@ import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.stage.Stage;
 import javafx.scene.layout.StackPane;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
 /**
  *
@@ -124,6 +129,15 @@ public class TechGardenMap extends Application implements MapComponentInitialize
 
        Button but  = new Button("Загрузить");
         but.setMinSize(100, 30);
+        but.setOnAction(e ->{
+            try {
+                new Controller().readFromFile();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            } catch (InvalidFormatException ex) {
+              ex.printStackTrace();
+            }
+            });
        StackPane pane = new StackPane();
        pane.setPrefWidth(200.0);
        pane.getChildren().add(but);
