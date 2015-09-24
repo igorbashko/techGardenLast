@@ -8,12 +8,12 @@ package techgarden;
 
 import com.lynden.gmapsfx.GoogleMapView;
 import com.lynden.gmapsfx.MapComponentInitializedListener;
-import com.lynden.gmapsfx.elevation.ElevationResult;
-import com.lynden.gmapsfx.elevation.ElevationService;
-import com.lynden.gmapsfx.elevation.ElevationServiceCallback;
-import com.lynden.gmapsfx.elevation.ElevationStatus;
-import com.lynden.gmapsfx.elevation.LocationElevationRequest;
-import com.lynden.gmapsfx.elevation.PathElevationRequest;
+import com.lynden.gmapsfx.service.elevation.ElevationResult;
+import com.lynden.gmapsfx.service.elevation.ElevationService;
+import com.lynden.gmapsfx.service.elevation.ElevationServiceCallback;
+import com.lynden.gmapsfx.service.elevation.ElevationStatus;
+import com.lynden.gmapsfx.service.elevation.LocationElevationRequest;
+import com.lynden.gmapsfx.service.elevation.PathElevationRequest;
 import com.lynden.gmapsfx.javascript.event.UIEventType;
 import com.lynden.gmapsfx.javascript.object.Animation;
 import com.lynden.gmapsfx.javascript.object.GoogleMap;

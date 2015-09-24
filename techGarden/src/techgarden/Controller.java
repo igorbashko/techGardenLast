@@ -78,7 +78,7 @@ e.printStackTrace();
 //public static void main(String args[]) throws IOException{
 public void readFromFile() throws IOException, InvalidFormatException{
 Controller controller = new Controller();
-Object[][] array1 = controller.getData("/home/igor/Documents/"
+Object[][] array1 = controller.getData("/home/igorbashka/Documents/"
 + "Hackathlon/excel.xls");
 this.data2 = array1;
 System.out.println(array1[0][0]+"\n"+array1[0][1].toString());
